@@ -10,6 +10,11 @@ class AuthServices {
     return user != null ? UserModel(uid: user.uid) : null;
   }
 
+  //create the steam for checking the auth changes in the user
+  Stream<UserModel?> get user {
+    return _auth.authStateChanges().map(_userwithFirebaseUserUid);
+  }
+
   //sign in anonymouse
   Future singInAnonymously() async {
     try {
