@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:futter_firbase_authapp/screens/authentication/login.dart';
+import 'package:futter_firbase_authapp/screens/authentication/sign_in.dart';
 import 'package:futter_firbase_authapp/screens/authentication/register.dart';
 
 class Authenticate extends StatefulWidget {
@@ -12,6 +12,6 @@ class Authenticate extends StatefulWidget {
 class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Sign_In());
+    return SignIn();
   }
 }
