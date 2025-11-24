@@ -44,124 +44,134 @@ class _SignInState extends State<SignIn> {
                   child: Image.asset("assets/images/man.png", height: 200),
                 ),
               ),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    //email
-                    TextFormField(
-                      validator: (val) =>
-                          val?.isEmpty == true ? "Enter a valid email" : null,
-                      onChanged: (val) {
-                        setState(() {
-                          email = val;
-                        });
-                      },
-                    ),
-                    //password
-                    TextFormField(
-                      validator: (val) =>
-                          val!.length < 6 ? "Enter a valid password" : null,
-                      onChanged: (val) {
-                        setState(() {
-                          password = val;
-                        });
-                      },
-                    ),
-                    //google
-                    const SizedBox(height: 40),
-                    const Text(
-                      "Login with social accounts",
-                      style: descriptionStyle,
-                    ),
-                    GestureDetector(
-                      //sign in with google
-                      onTap: () {},
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child: Image.asset(
-                            "assets/images/google.png",
-                            height: 45,
-                          ),
-                        ),
+              const SizedBox(height: 20),
+
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      //email
+                      TextFormField(
+                        decoration: textInputDecoration,
+                        validator: (val) =>
+                            val?.isEmpty == true ? "Enter a valid email" : null,
+                        onChanged: (val) {
+                          setState(() {
+                            email = val;
+                          });
+                        },
                       ),
-                    ),
-                    const SizedBox(height: 20),
-
-                    //register
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Do not have an account?",
-                          style: descriptionStyle,
+                      const SizedBox(height: 20),
+                      //password
+                      TextFormField(
+                        decoration: textInputDecoration.copyWith(
+                          hintText: "Password",
                         ),
-                        const SizedBox(width: 10),
-                        GestureDetector(
-                          //go to the register page
-                          onTap: () {},
-                          child: Text(
-                            "REGISTER",
-                            style: TextStyle(
-                              color: mainBlue,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    //button
-                    const SizedBox(height: 40),
-
-                    GestureDetector(
-                      //methos for login user
-                      onTap: () {},
-                      child: Container(
-                        height: 40,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: bgBlack,
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(width: 2, color: mainZian),
-                        ),
+                        validator: (val) =>
+                            val!.length < 6 ? "Enter a valid password" : null,
+                        onChanged: (val) {
+                          setState(() {
+                            password = val;
+                          });
+                        },
+                      ),
+                      //google
+                      const SizedBox(height: 40),
+                      const Text(
+                        "Login with social accounts",
+                        style: descriptionStyle,
+                      ),
+                      GestureDetector(
+                        //sign in with google
+                        onTap: () {},
                         child: Center(
-                          child: const Text(
-                            "LOGIN",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: Image.asset(
+                              "assets/images/google.png",
+                              height: 45,
                             ),
                           ),
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 20),
 
-                    const SizedBox(height: 15),
-                    //anon
-                    GestureDetector(
-                      //methos for login user
-                      onTap: () {},
-                      child: Container(
-                        height: 40,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: bgBlack,
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(width: 2, color: mainZian),
-                        ),
-                        child: Center(
-                          child: const Text(
-                            "LOGIN AS GUEST",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
+                      //register
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Do not have an account?",
+                            style: descriptionStyle,
+                          ),
+                          const SizedBox(width: 10),
+                          GestureDetector(
+                            //go to the register page
+                            onTap: () {},
+                            child: Text(
+                              "REGISTER",
+                              style: TextStyle(
+                                color: mainBlue,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //button
+                      const SizedBox(height: 40),
+
+                      GestureDetector(
+                        //methos for login user
+                        onTap: () {},
+                        child: Container(
+                          height: 40,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: bgBlack,
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(width: 2, color: mainZian),
+                          ),
+                          child: Center(
+                            child: const Text(
+                              "LOGIN",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+
+                      const SizedBox(height: 15),
+                      //anon
+                      GestureDetector(
+                        //methos for login user
+                        onTap: () {},
+                        child: Container(
+                          height: 40,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: bgBlack,
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(width: 2, color: mainZian),
+                          ),
+                          child: Center(
+                            child: const Text(
+                              "LOGIN AS GUEST",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
