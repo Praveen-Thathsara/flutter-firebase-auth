@@ -69,7 +69,7 @@ class _SignInState extends State<SignIn> {
                       },
                     ),
                     //google
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 40),
                     const Text(
                       "Login with social accounts",
                       style: descriptionStyle,
@@ -112,7 +112,7 @@ class _SignInState extends State<SignIn> {
                       ],
                     ),
                     //button
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 40),
 
                     GestureDetector(
                       //methos for login user
