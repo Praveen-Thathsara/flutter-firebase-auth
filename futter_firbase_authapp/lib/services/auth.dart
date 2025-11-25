@@ -28,6 +28,19 @@ class AuthServices {
   }
 
   //register using email and password
+  Future registerWIthEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = result.user;
+    } catch (err) {
+      print(err.toString());
+      return null;
+    }
+  }
+
   //sign in using gmail
   //sing out
   Future singOut() async {

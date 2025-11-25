@@ -6,7 +6,9 @@ import 'package:futter_firbase_authapp/services/auth.dart';
 import '../../services/auth.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+  //function
+  final Function toggle;
+  const SignIn({Key? key, required this.toggle}) : super(key: key);
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -109,7 +111,9 @@ class _SignInState extends State<SignIn> {
                           const SizedBox(width: 10),
                           GestureDetector(
                             //go to the register page
-                            onTap: () {},
+                            onTap: () {
+                              widget.toggle();
+                            },
                             child: Text(
                               "REGISTER",
                               style: TextStyle(

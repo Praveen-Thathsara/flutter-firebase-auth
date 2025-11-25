@@ -5,7 +5,8 @@ import 'package:futter_firbase_authapp/constants/styles.dart';
 import 'package:futter_firbase_authapp/services/auth.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
+  final Function toggle;
+  const Register({Key? key, required this.toggle}) : super(key: key);
 
   @override
   State<Register> createState() => _RegisterState();
@@ -107,7 +108,9 @@ class _RegisterState extends State<Register> {
                           const SizedBox(width: 10),
                           GestureDetector(
                             //go to the register page
-                            onTap: () {},
+                            onTap: () {
+                              widget.toggle();
+                            },
                             child: Text(
                               "LOGIN",
                               style: TextStyle(
