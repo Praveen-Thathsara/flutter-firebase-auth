@@ -20,6 +20,7 @@ class _RegisterState extends State<Register> {
   //email password states
   String email = "";
   String password = "";
+  String error = "";
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +54,7 @@ class _RegisterState extends State<Register> {
                     children: [
                       //email
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         decoration: textInputDecoration,
                         validator: (val) =>
                             val?.isEmpty == true ? "Enter a valid email" : null,
@@ -65,6 +67,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(height: 20),
                       //password
                       TextFormField(
+                        obscureText: true,
+                        style: TextStyle(color: Colors.white),
                         decoration: textInputDecoration.copyWith(
                           hintText: "Password",
                         ),
@@ -77,7 +81,10 @@ class _RegisterState extends State<Register> {
                         },
                       ),
                       //google
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
+                      Text(error, style: TextStyle(color: Colors.red)),
+                      const SizedBox(height: 20),
+
                       const Text(
                         "Login with social accounts",
                         style: descriptionStyle,
@@ -126,7 +133,17 @@ class _RegisterState extends State<Register> {
 
                       GestureDetector(
                         //methos for login user
-                        onTap: () {},
+                        onTap: () async {
+                          dynamic result = await _auth
+                              .registerWIthEmailAndPassword(email, password);
+
+                          if (result == null) {
+                            //error
+                            setState(() {
+                              error = "Please enter a valid email";
+                            });
+                          }
+                        },
                         child: Container(
                           height: 40,
                           width: 200,
